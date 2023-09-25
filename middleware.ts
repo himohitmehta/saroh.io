@@ -1,19 +1,19 @@
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 import {
-  ADMIN_HOSTNAMES,
-  API_HOSTNAMES,
+  // ADMIN_HOSTNAMES,
+  // API_HOSTNAMES,
   APP_HOSTNAMES,
-  DEFAULT_REDIRECTS,
+  // DEFAULT_REDIRECTS,
   isHomeHostname,
 } from "@/lib/constants";
 import {
   AppMiddleware,
-  ApiMiddleware,
-  LinkMiddleware,
-  RootMiddleware,
+  // ApiMiddleware,
+  // LinkMiddleware,
+  // RootMiddleware,
 } from "@/lib/middleware";
 import { parse } from "@/lib/middleware/utils";
-import AdminMiddleware from "@/lib/middleware/admin";
+// import AdminMiddleware from "@/lib/middleware/admin";
 
 export const config = {
   matcher: [
@@ -38,9 +38,9 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
   }
 
   // for public stats pages (e.g. saroh.io/stats/github, vercel.fyi/stats/roomGPT)
-  if (key === "stats") {
-    return NextResponse.rewrite(new URL(`/${domain}${path}`, req.url));
-  }
+  // if (key === "stats") {
+  //   return NextResponse.rewrite(new URL(`/${domain}${path}`, req.url));
+  // }
 
   // for App
   if (APP_HOSTNAMES.has(domain)) {
@@ -48,14 +48,14 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
   }
 
   // for API
-  if (API_HOSTNAMES.has(domain)) {
-    return ApiMiddleware(req);
-  }
+  // if (API_HOSTNAMES.has(domain)) {
+  //   return ApiMiddleware(req);
+  // }
 
   // for Admin
-  if (ADMIN_HOSTNAMES.has(domain)) {
-    return AdminMiddleware(req);
-  }
+  // if (ADMIN_HOSTNAMES.has(domain)) {
+  //   return AdminMiddleware(req);
+  // }
 
   // for root pages (e.g. saroh.io, vercel.fyi, etc.)
 //   if (key.length === 0) {
