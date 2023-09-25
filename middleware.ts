@@ -48,8 +48,9 @@ export default async function middleware(req: NextRequest) {
 	if (
 		hostname === "localhost:3000" ||
 		hostname === process.env.NEXT_PUBLIC_ROOT_DOMAIN ||
-		hostname === "saroh.io"||
-        hostname === "www.saroh.site"
+		hostname === "saroh.io" ||
+		hostname === "www.saroh.site" ||
+		hostname === "www.saroh.io"
 	) {
 		return NextResponse.rewrite(new URL(`/home${path}`, req.url));
 
