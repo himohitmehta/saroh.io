@@ -1,0 +1,288 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL") // uses connection pooling
+  relationMode = "prisma"
+
+  // directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  // shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  // previewFeatures = ["jsonProtocol"]
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String?
+  // if you are using Github OAuth, you can get rid of the username attribute (that is for Twitter OAuth)
+  username      String?
+  gh_username   String?
+  email         String?        @unique
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  accounts      Account[]
+  sessions      Session[]
+  sites         Site[]
+  posts         Post[]
+  projects      ProjectUsers[]
+  links         Link[]
+}
+
+model Account {
+  id                       String  @id @default(cuid())
+  userId                   String
+  type                     String
+  provider                 String
+  providerAccountId        String
+  refresh_token            String? @db.LongText
+  refresh_token_expires_in Int?
+  access_token             String? @db.LongText
+  expires_at               Int?
+  token_type               String?
+  scope                    String?
+  id_token                 String? @db.LongText
+  session_state            String?
+  oauth_token_secret       String?
+  oauth_token              String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Post {
+  id            String   @id @default(cuid())
+  title         String?  @db.Text
+  description   String?  @db.Text
+  content       String?  @db.LongText
+  slug          String   @default(cuid())
+  image         String?  @db.LongText
+  imageBlurhash String?  @db.LongText
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  published     Boolean  @default(false)
+  site          Site?    @relation(fields: [siteId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  siteId        String?
+  user          User?    @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId        String?
+
+  @@unique([slug, siteId])
+  @@index([siteId])
+  @@index([userId])
+}
+
+model Site {
+  id            String   @id @default(cuid())
+  name          String?
+  description   String?  @db.Text
+  logo          String?  @db.Text
+  font          String   @default("font-cal")
+  image         String?  @db.LongText
+  imageBlurhash String?  @db.LongText
+  subdomain     String?  @unique
+  customDomain  String?  @unique
+  message404    String?  @db.Text
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  user          User?    @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId        String?
+  posts         Post[]
+
+  @@index([userId])
+}
+
+model Project {
+  id   String  @id @default(cuid())
+  name String
+  slug String  @unique
+  logo String?
+
+  users             ProjectUsers[]
+  invites           ProjectInvite[]
+  usage             Int             @default(0)
+  usageLimit        Int             @default(1000)
+  plan              String          @default("free")
+  stripeId          String?         @unique // Stripe subscription ID
+  billingCycleStart Int? // day of the month when the billing cycle starts
+
+  sentEmails SentEmail[]
+  domains    Domain[]
+  links      Link[]
+  tags       Tag[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProjectInvite {
+  email     String
+  expires   DateTime
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId String
+  createdAt DateTime @default(now())
+
+  @@unique([email, projectId])
+  @@index([projectId])
+}
+
+enum Role {
+  owner
+  member
+}
+
+model ProjectUsers {
+  id        String   @id @default(cuid())
+  role      Role     @default(member)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId String
+
+  @@unique([userId, projectId])
+  @@index([projectId])
+}
+
+enum EmailType {
+  firstDomainInvalidEmail
+  secondDomainInvalidEmail
+  firstUsageLimitEmail
+  secondUsageLimitEmail
+}
+
+model SentEmail {
+  id        String    @id @default(cuid())
+  type      EmailType
+  createdAt DateTime  @default(now())
+  project   Project?  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId String?
+
+  @@index([projectId])
+}
+
+model Domain {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  verified    Boolean  @default(false)
+  target      String?
+  type        String   @default("redirect")
+  description String?
+  project     Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId   String?
+  primary     Boolean  @default(false)
+  links       Link[]
+  lastChecked DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index(projectId)
+  @@index(lastChecked)
+}
+
+model Link {
+  id        String    @id @default(cuid())
+  domain    String // domain of the link (e.g. dub.sh) – also stored on Redis
+  key       String // key of the link (e.g. /github) – also stored on Redis
+  url       String    @db.LongText // target url (e.g. https://github.com/steven-tey/dub) – also stored on Redis
+  archived  Boolean   @default(false) // whether the link is archived or not
+  expiresAt DateTime? // when the link expires – stored on Redis via ttl
+  password  String? // password to access the link – also stored on Redis
+
+  proxy       Boolean @default(false) // Proxy to use custom OG tags (stored on redis) – if false, will use OG tags from target url
+  title       String? // OG title for the link (e.g. Dub - Open-Source Bitly Alternative)
+  description String? @db.VarChar(280) // OG description for the link (e.g. An open-source link management tool for modern marketing teams to create, share, and track short links.)
+  image       String? @db.LongText // OG image for the link (e.g. https://dub.sh/og-image.png)
+
+  // UTM parameters
+  utm_source   String? // UTM source for the link (e.g. youtube.com)
+  utm_medium   String? // UTM medium for the link (e.g. social)
+  utm_campaign String? // UTM campaign for the link (e.g. summer-sale)
+  utm_term     String? // UTM term for the link (e.g. dub)
+  utm_content  String? // UTM content for the link (e.g. description)
+
+  // Link cloaking/masking via rewrite
+  rewrite Boolean @default(false) // whether to rewrite the link or not
+
+  // Custom device targeting
+  ios     String? @db.LongText // custom link for iOS devices
+  android String? @db.LongText // custom link for Android devices
+  geo     Json?   @db.Json // custom link for specific countries
+
+  // User who created the link
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String?
+
+  // Project that the link belongs to
+  project       Project? @relation(fields: [projectId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  projectId     String?
+  // Relational reference to the project domain
+  projectDomain Domain?  @relation(fields: [domain], references: [slug], onUpdate: Cascade, onDelete: Cascade)
+
+  publicStats Boolean   @default(false) // whether to show public stats or not
+  clicks      Int       @default(0) // number of clicks
+  lastClicked DateTime? // when the link was last clicked
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Link tags
+  tag   Tag?    @relation(fields: [tagId], references: [id])
+  tagId String?
+
+  // Comments on the particular shortlink
+  comments String? @db.LongText
+
+  // TODO: might wanna add indices for utm_source, utm_medium, utm_campaign
+
+  @@unique([domain, key])
+  @@index(projectId)
+  @@index(domain)
+  @@index(tagId)
+  @@index(proxy)
+  @@index(password)
+  @@index(createdAt(sort: Desc))
+  @@index(clicks(sort: Desc))
+  @@index(lastClicked)
+  @@index(userId)
+  @@fulltext([key, url])
+}
+
+model Tag {
+  id        String   @id @default(cuid())
+  name      String
+  color     String   @default("blue")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project   Project  @relation(fields: [projectId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  projectId String
+  links     Link[]
+
+  @@unique([name, projectId])
+  @@index(projectId)
+}
