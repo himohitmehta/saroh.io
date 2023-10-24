@@ -1,3 +1,4 @@
+"use client";
 import { CreditCard, LogOut, PlusCircle, Settings, User } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -12,7 +13,7 @@ import {
 	DropdownMenuShortcut,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
+import { signOut } from "next-auth/react";
 export function UserNav({
 	avatarUrl,
 	name,
@@ -22,6 +23,9 @@ export function UserNav({
 	name: string;
 	email: string;
 }) {
+	const handleClickLogout = () => {
+		signOut();
+	};
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
@@ -72,7 +76,7 @@ export function UserNav({
 					</DropdownMenuItem>
 				</DropdownMenuGroup>
 				<DropdownMenuSeparator />
-				<DropdownMenuItem>
+				<DropdownMenuItem onClick={() => handleClickLogout()}>
 					<LogOut className="mr-2 h-4 w-4" />
 					<span>Log out</span>
 					<DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
