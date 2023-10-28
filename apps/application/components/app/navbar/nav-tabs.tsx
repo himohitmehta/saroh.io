@@ -40,11 +40,11 @@ export default function NavTabs() {
 						// 	.join("/") === href
 						segments[0] === key ||
 						(key === "dashboard" && segments.length === 0)
-							? "border-black text-black"
-							: "border-transparent text-gray-600 hover:text-black"
+							? "border-black text-black dark:text-gray-300 dark:border-white  dark:hover:text-white"
+							: "border-transparent text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white"
 					}`}
 				>
-					<div className="px-3 py-2 transition-all duration-75 rounded-md hover:bg-gray-100 active:bg-gray-200">
+					<div className="px-3 py-2 transition-all duration-75 rounded-md hover:bg-gray-100 active:bg-gray-200 dark:hover:bg-gray-600 dark:active:bg-gray-200 dark:active:text-white ">
 						<p className="text-sm">{name}</p>
 					</div>
 				</Link>
