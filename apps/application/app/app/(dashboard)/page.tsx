@@ -5,6 +5,8 @@ import Sites from "@/components/sites";
 import Link from "next/link";
 import PlaceholderCard from "@/components/placeholder-card";
 import OverviewSitesCTA from "@/components/overview-sites-cta";
+import CreateSiteButton from "@/components/create-site-button";
+import CreateSiteModal from "@/components/modal/create-site";
 // import OverviewSitesCTA from "@/components/overview-sites-cta";
 
 export default function Overview() {
@@ -23,7 +25,12 @@ export default function Overview() {
 						Top Sites
 					</h1>
 					<Suspense fallback={null}>
-						<OverviewSitesCTA />
+						<div className="flex gap-4">
+							<CreateSiteButton>
+								<CreateSiteModal />
+							</CreateSiteButton>{" "}
+							<OverviewSitesCTA />
+						</div>
 					</Suspense>
 				</div>
 				<Suspense
