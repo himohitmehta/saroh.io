@@ -1,9 +1,8 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 import prisma from "@/lib/prisma";
-import CTA from "@/components/cta";
-import ReportAbuse from "@/components/report-abuse";
+// import CTA from "@/components/cta";
 import { notFound, redirect } from "next/navigation";
 import { getSiteData } from "@/lib/fetchers";
 import { fontMapper } from "@/styles/fonts";
@@ -126,12 +125,12 @@ export default async function SiteLayout({
 
 			<div className="mt-20">{children}</div>
 
-			{params.domain == `demo.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}` ||
+			{/* {params.domain == `demo.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}` ||
 			params.domain == `saroh.site` ? (
 				<CTA />
 			) : (
 				<ReportAbuse />
-			)}
+			)} */}
 		</div>
 	);
 }

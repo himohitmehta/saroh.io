@@ -6,7 +6,8 @@
 		"dev": "next dev --port 3003",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"predev": "prisma generate"
 	},
 	"dependencies": {
 		"@prisma/client": "^5.3.1",
@@ -37,6 +38,7 @@
 		"postcss": "^8.4.31",
 		"tailwind-config": "workspace:*",
 		"tailwindcss": "^3.3.3",
+		"prisma": "^5.3.1",
 		"typescript": "^5"
 	}
 }
