@@ -47,7 +47,7 @@ export default function PostCard({
 					href={
 						process.env.NEXT_PUBLIC_VERCEL_ENV
 							? `https://${url}`
-							: `http://${data.site?.subdomain}.localhost:3000/${data.slug}`
+							: `http://${data.site?.subdomain}.${process.env.NEXT_PUBLIC_LOCAL_SITE_URL}/${data.slug}`
 					}
 					target="_blank"
 					rel="noreferrer"

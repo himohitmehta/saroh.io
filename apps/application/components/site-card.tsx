@@ -35,7 +35,7 @@ export default function SiteCard({ data }: { data: Site }) {
           href={
             process.env.NEXT_PUBLIC_VERCEL_ENV
               ? `https://${url}`
-              : `http://${data.subdomain}.localhost:3000`
+              : `http://${data.subdomain}.${process.env.NEXT_PUBLIC_LOCAL_SITE_URL}`
           }
           target="_blank"
           rel="noreferrer"
