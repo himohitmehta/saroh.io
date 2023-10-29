@@ -33,7 +33,7 @@ const Navbar = async () => {
 	];
 
 	return (
-		<div className="border-b ">
+		<div className="border-b dark:border-gray-800 ">
 			<MaxWidthWrapper>
 				<div className="flex items-center h-16 px-4">
 					<StoreSwitcher items={stores} />
