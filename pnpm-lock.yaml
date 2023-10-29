@@ -295,9 +295,6 @@ importers:
 
   apps/sites:
     dependencies:
-      '@prisma/client':
-        specifier: ^5.3.1
-        version: 5.4.2(prisma@5.5.2)
       '@prisma/nextjs-monorepo-workaround-plugin':
         specifier: ^5.5.2
         version: 5.5.2
@@ -368,9 +365,6 @@ importers:
       postcss:
         specifier: ^8.4.31
         version: 8.4.31
-      prisma:
-        specifier: ^5.3.1
-        version: 5.5.2
       tailwind-config:
         specifier: workspace:*
         version: link:../../packages/tailwind-config
