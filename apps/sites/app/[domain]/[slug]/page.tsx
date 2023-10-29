@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
 import { getPostData } from "@/lib/fetchers";
 import BlogCard from "@/components/blog-card";
-import BlurImage from "@/components/blur-image";
 import MDX from "@/components/mdx";
-import { placeholderBlurhash, toDateString } from "@/lib/utils";
+import {  toDateString } from "@/lib/utils";
 
 export async function generateMetadata({
 	params,
