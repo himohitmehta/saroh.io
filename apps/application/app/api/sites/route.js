@@ -1,6 +1,6 @@
 import { getSession } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { NextResponse } from "next/server";
+// import { NextResponse } from "next/server";
 
 export async function GET() {
 	const session = await getSession();
@@ -24,8 +24,13 @@ export async function GET() {
 		},
 		// ...(limit ? { take: limit } : {}),
 	});
-	return NextResponse.json({
+	return new Response.json({
 		result: sites,
 		status: "success",
 	});
+	// })
+	// NextResponse.json({
+	// 	result: sites,
+	// 	status: "success",
+	// });
 }
