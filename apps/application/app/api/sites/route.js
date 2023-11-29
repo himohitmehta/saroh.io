@@ -1,16 +1,16 @@
 import { getSession } from "@/lib/auth";
 import prisma from "@/lib/prisma";
+import { NextResponse } from "next/server";
 // import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(req, res) {
 	const session = await getSession();
 	if (!session) {
-		return {
-			status: 401,
-			body: {
-				message: "Unauthorized",
-			},
-		};
+		return NextResponse.json({
+			result: null,
+			status: "error",
+			message: "unauthorized",
+		});
 	}
 	// const {} = req.json();
 	const sites = await prisma.site.findMany({
@@ -24,13 +24,8 @@ export async function GET() {
 		},
 		// ...(limit ? { take: limit } : {}),
 	});
-	return new Response.json({
+ 	return NextResponse.json({
 		result: sites,
 		status: "success",
 	});
-	// })
-	// NextResponse.json({
-	// 	result: sites,
-	// 	status: "success",
-	// });
 }
