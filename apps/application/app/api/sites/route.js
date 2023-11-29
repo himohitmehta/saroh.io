@@ -2,7 +2,7 @@ import { getSession } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request) {
+export async function GET() {
 	const session = await getSession();
 	if (!session) {
 		return {
@@ -16,7 +16,7 @@ export async function GET(req: Request) {
 	const sites = await prisma.site.findMany({
 		where: {
 			user: {
-				id: session?.user.id as string,
+				id: session?.user.id,
 			},
 		},
 		orderBy: {
@@ -25,7 +25,7 @@ export async function GET(req: Request) {
 		// ...(limit ? { take: limit } : {}),
 	});
 	return NextResponse.json({
-		result:sites,
-        status:"success"
+		result: sites,
+		status: "success",
 	});
 }
