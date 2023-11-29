@@ -5,18 +5,14 @@ import prisma from "@/lib/prisma";
 import { notFound, redirect } from "next/navigation";
 import React from "react";
 
-export default async function SitePage({
-	params,
-}: {
-	params: { siteId: string };
-}) {
+export default async function SitePage({ params }: { params: { id: string } }) {
 	const session = await getSession();
 	if (!session) {
 		redirect("/login");
 	}
 	const data = await prisma.site.findUnique({
 		where: {
-			id: params.siteId,
+			id: params.id,
 		},
 	});
 
@@ -48,7 +44,7 @@ export default async function SitePage({
 				</div>
 				<CreatePostButton />
 			</div>
-			<Posts siteId={params.siteId} />
+			<Posts siteId={params.id} />
 		</>
 	);
 }

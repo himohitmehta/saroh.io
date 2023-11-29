@@ -9,7 +9,7 @@ import LoadingDots from "@/components/icons/loading-dots";
 
 export default function CreatePostButton() {
   const router = useRouter();
-  const { id } = useParams() as { id: string };
+  const { id,  } = useParams() as { id: string };
   const [isPending, startTransition] = useTransition();
 
   return (
