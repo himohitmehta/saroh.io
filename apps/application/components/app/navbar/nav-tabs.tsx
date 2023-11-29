@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSelectedLayoutSegments } from "next/navigation";
+import { useParams, useSelectedLayoutSegments } from "next/navigation";
 import React from "react";
 
 let tabs = [
@@ -24,10 +24,20 @@ let tabs = [
 
 export default function NavTabs() {
 	const segments = useSelectedLayoutSegments();
+	const params = useParams();
+	const siteId = params.siteId;
+	const postTab = {
+		name: "Posts",
+		href: `/${siteId}`,
+		key: "posts",
+	};
+	const filteredTabs = tabs.filter((item) => item.key !== "sites");
+	const tabsWithPosts = siteId ? [...filteredTabs, postTab] : tabs;
+
 	console.log({ segments });
 	return (
 		<div className="-mb-0.5 flex h-12 items-center justify-start space-x-2 overflow-x-auto scrollbar-hide">
-			{tabs.map(({ name, href, key }) => (
+			{tabsWithPosts.map(({ name, href, key }) => (
 				<Link
 					key={href}
 					href={href}
