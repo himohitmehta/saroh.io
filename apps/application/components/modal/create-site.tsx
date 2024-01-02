@@ -38,9 +38,9 @@ export default function CreateSiteModal() {
 						toast.error(res.error);
 					} else {
 						// va.track("Created Site");
-						const { id } = res;
+						const { id, subdomain } = res;
 						router.refresh();
-						router.push(`/site/${id}`);
+						router.push(`/${subdomain}`);
 						modal?.hide();
 						toast.success(`Successfully created site!`);
 					}
