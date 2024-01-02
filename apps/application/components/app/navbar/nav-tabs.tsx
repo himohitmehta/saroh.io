@@ -10,11 +10,11 @@ let tabs = [
 		href: "/",
 		key: "dashboard",
 	},
-	{
-		name: "Sites",
-		href: "/sites",
-		key: "sites",
-	},
+	// {
+	// 	name: "Sites",
+	// 	href: "/sites",
+	// 	key: "sites",
+	// },
 	{
 		name: "Settings",
 		href: "/settings",
@@ -25,14 +25,21 @@ let tabs = [
 export default function NavTabs() {
 	const segments = useSelectedLayoutSegments();
 	const params = useParams();
-	const siteId = params.siteId;
-	const postTab = {
-		name: "Posts",
-		href: `/${siteId}`,
-		key: "posts",
-	};
+	const siteId = params.subdomain;
+	const postTab = [
+		{
+			name: "Site",
+			href: `/${siteId}`,
+			key: siteId,
+		},
+		{
+			name: "Settings",
+			href: `/${siteId}/settings`,
+			key: "post-settings",
+		},
+	];
 	const filteredTabs = tabs.filter((item) => item.key !== "sites");
-	const tabsWithPosts = siteId ? [...filteredTabs, postTab] : tabs;
+	const tabsWithPosts = siteId ? postTab : tabs;
 
 	console.log({ segments });
 	return (
@@ -49,7 +56,8 @@ export default function NavTabs() {
 						// 	.slice(0, slug ? 3 : 2)
 						// 	.join("/") === href
 						segments[0] === key ||
-						(key === "dashboard" && segments.length === 0)
+						(key === "dashboard" && segments.length === 0) ||
+						key === params.subdomain
 							? "border-black text-black dark:text-gray-300 dark:border-white  dark:hover:text-white"
 							: "border-transparent text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white"
 					}`}

@@ -1,20 +1,20 @@
 // import { UserButton, auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
 
 import StoreSwitcher from "./store-switcher";
-import { MainNav } from "./main-nav";
 import { ThemeToggle } from "./theme-toggle";
 import { UserNav } from "./user-nav";
 // import prismadb from "@/lib/prismadb";
-import { getSession } from "@/lib/auth";
-import NavTabs from "./nav-tabs";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import { getSession } from "@/lib/auth";
+import Link from "next/link";
+import NavTabs from "./nav-tabs";
 
 const Navbar = async () => {
 	// const { userId } = auth();
 	const session = await getSession();
 	const name = session?.user.name!;
 	const userName = session?.user.username!;
+	
 
 	const email = session?.user.email!;
 	const avatarUrl = session?.user.image!;
@@ -36,6 +36,7 @@ const Navbar = async () => {
 		<div className="border-b dark:border-gray-800 ">
 			<MaxWidthWrapper>
 				<div className="flex items-center h-16 px-4">
+					<Link href={"/"} className="font-bold text-lg px-4">saroh</Link>
 					<StoreSwitcher items={stores} />
 					{/* <MainNav className="mx-6" /> */}
 					<div className="flex items-center ml-auto space-x-4">
