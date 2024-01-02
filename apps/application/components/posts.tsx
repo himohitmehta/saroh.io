@@ -22,12 +22,12 @@ export default async function Posts({
 			subdomain: subdomain,
 		},
 	});
-	const siteId = site.id;
+	const siteId = site && site.id;
 	const posts = await prisma.post.findMany({
 		where: {
 			userId: session.user.id as string,
-			// ...(subdomain ? { subdomain } : {}),
-			siteId: siteId,
+			...(siteId ? { siteId } : {}),
+			// siteId: siteId,
 		},
 		orderBy: {
 			updatedAt: "desc",
@@ -41,7 +41,11 @@ export default async function Posts({
 	return posts.length > 0 ? (
 		<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
 			{posts.map((post) => (
-				<PostCard key={post.id} data={post} subdomain={subdomain} />
+				<PostCard
+					key={post.id}
+					data={post}
+					subdomain={subdomain as string}
+				/>
 			))}
 		</div>
 	) : (
