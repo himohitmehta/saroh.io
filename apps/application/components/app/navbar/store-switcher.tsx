@@ -41,6 +41,7 @@ export default function StoreSwitcher({
 		{
 			name: string;
 			id: string;
+			subdomain: string;
 		}[]
 	>([]);
 	const handleFetchSites = () => {
@@ -59,11 +60,11 @@ export default function StoreSwitcher({
 
 	const formattedItems = sites.map((item) => ({
 		label: item.name,
-		value: item.id,
+		value: item.subdomain,
 	}));
 
 	const currentStore = formattedItems.find(
-		(item) => item.value === params.id,
+		(item) => item.value === params.subdomain,
 	);
 
 	const [open, setOpen] = React.useState(false);

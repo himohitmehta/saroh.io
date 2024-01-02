@@ -9,6 +9,7 @@ import { UserNav } from "./user-nav";
 import { getSession } from "@/lib/auth";
 import NavTabs from "./nav-tabs";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import Link from "next/link";
 
 const Navbar = async () => {
 	// const { userId } = auth();
@@ -36,6 +37,7 @@ const Navbar = async () => {
 		<div className="border-b dark:border-gray-800 ">
 			<MaxWidthWrapper>
 				<div className="flex items-center h-16 px-4">
+					<Link href={"/"}>saroh</Link>
 					<StoreSwitcher items={stores} />
 					{/* <MainNav className="mx-6" /> */}
 					<div className="flex items-center ml-auto space-x-4">

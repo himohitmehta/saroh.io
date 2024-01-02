@@ -10,11 +10,11 @@ let tabs = [
 		href: "/",
 		key: "dashboard",
 	},
-	{
-		name: "Sites",
-		href: "/sites",
-		key: "sites",
-	},
+	// {
+	// 	name: "Sites",
+	// 	href: "/sites",
+	// 	key: "sites",
+	// },
 	{
 		name: "Settings",
 		href: "/settings",

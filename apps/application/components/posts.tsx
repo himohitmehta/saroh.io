@@ -5,20 +5,29 @@ import PostCard from "./post-card";
 import Image from "next/image";
 
 export default async function Posts({
-	siteId,
+	// siteId,
 	limit,
+	subdomain,
 }: {
-	siteId?: string;
+	// siteId?: string;
 	limit?: number;
+	subdomain?: string;
 }) {
 	const session = await getSession();
 	if (!session?.user) {
 		redirect("/login");
 	}
+	const site = await prisma.site.findUnique({
+		where: {
+			subdomain: subdomain,
+		},
+	});
+	const siteId = site.id;
 	const posts = await prisma.post.findMany({
 		where: {
 			userId: session.user.id as string,
-			...(siteId ? { siteId } : {}),
+			// ...(subdomain ? { subdomain } : {}),
+			siteId: siteId,
 		},
 		orderBy: {
 			updatedAt: "desc",
