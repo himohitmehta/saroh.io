@@ -22,14 +22,14 @@ export default function Overview() {
 			<div className="flex flex-col space-y-6">
 				<div className="flex items-center justify-between">
 					<h1 className="font-cal text-3xl font-bold dark:text-white">
-						Top Sites
+						Sites
 					</h1>
 					<Suspense fallback={null}>
 						<div className="flex gap-4">
 							<CreateSiteButton>
 								<CreateSiteModal />
 							</CreateSiteButton>{" "}
-							<OverviewSitesCTA />
+							{/* <OverviewSitesCTA /> */}
 						</div>
 					</Suspense>
 				</div>
@@ -42,7 +42,7 @@ export default function Overview() {
 						</div>
 					}
 				>
-					<Sites limit={4} />
+					<Sites limit={12} />
 				</Suspense>
 			</div>
 

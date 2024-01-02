@@ -73,6 +73,7 @@ export default function StoreSwitcher({
 		setOpen(false);
 		router.push(`/${store.value}`);
 	};
+	if (!params.subdomain) return null;
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
