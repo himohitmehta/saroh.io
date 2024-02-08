@@ -13,7 +13,7 @@ export default function MDX({ source }: { source: MDXRemoteProps }) {
 
 	return (
 		<article
-			className={` prose prose-stone m-auto w-11/12 dark:prose-invert sm:prose-lg sm:w-3/4 prose-h1:text-3xl prose-headings:font-semibold prose-h2 prose-h3 prose-h4 prose-p prose-blockquote prose-code prose-ol prose-ul prose-li prose-img prose-hr `}
+			className={` prose prose-stone m-auto w-11/12 dark:prose-invert sm:prose-lg sm:w-3/4 `}
 			suppressHydrationWarning={true}
 		>
 			{/* @ts-ignore */}
