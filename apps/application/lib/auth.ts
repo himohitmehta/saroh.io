@@ -103,7 +103,8 @@ export function withSiteAuth(action: any) {
 		}
 		const site = await prisma.site.findUnique({
 			where: {
-				id: siteId,
+				// id: siteId,
+				subdomain: siteId,
 			},
 		});
 		if (!site || site.userId !== session.user.id) {
