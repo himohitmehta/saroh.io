@@ -1,7 +1,7 @@
+import Editor from "@/components/editor";
 import { getSession } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { notFound, redirect } from "next/navigation";
-import Editor from "@/components/editor";
 
 export default async function PostPage({
 	params,
@@ -28,5 +28,10 @@ export default async function PostPage({
 		notFound();
 	}
 
-	return <Editor post={data} />;
+	return (
+		<>
+			<Editor post={data} />
+			{/* <BlockNoteEditor /> */}
+		</>
+	);
 }
