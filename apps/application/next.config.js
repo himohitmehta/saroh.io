@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const { PrismaPlugin } = require('@prisma/nextjs-monorepo-workaround-plugin')
+const { PrismaPlugin } = require("@prisma/nextjs-monorepo-workaround-plugin");
 
 const nextConfig = {
 	webpack: (config, { isServer }) => {
@@ -24,6 +24,7 @@ const nextConfig = {
 			"flag.vercel.app",
 			"illustrations.popsy.co",
 			"lh3.googleusercontent.com",
+			`${process.env.SPACES_IMAGES_CDN_BASE_URL}`,
 		],
 	},
 };
