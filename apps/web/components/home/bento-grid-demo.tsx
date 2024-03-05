@@ -4,6 +4,9 @@ import React from "react";
 import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
 import {
 	IconBoxAlignRightFilled,
+	IconBrandGithub,
+	IconBrandInstagram,
+	IconBrandStripe,
 	IconClipboardCopy,
 	IconFileBroken,
 	IconSignature,
@@ -11,6 +14,7 @@ import {
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Avatar } from "../ui/avatar";
 
 export function BentoGridThirdDemo() {
 	return (
@@ -194,51 +198,59 @@ const SkeletonFour = () => {
 				variants={first}
 				className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
 			>
-				<Image
+				{/* <Image
 					src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
 					alt="avatar"
 					height="100"
 					width="100"
 					className="rounded-full h-10 w-10"
-				/>
+				/> */}
+				{/* <Avatar> */}
+				<IconBrandInstagram />
+				{/* </Avatar> */}
+
 				<p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-					Just code in Vanilla Javascript
+					Social Media Integrations
 				</p>
 				<p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
-					Delusional
+					#saroh
 				</p>
 			</motion.div>
 			<motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
-				<Image
+				{/* <Image
 					src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
 					alt="avatar"
 					height="100"
 					width="100"
 					className="rounded-full h-10 w-10"
-				/>
+				/> */}
+				<IconBrandStripe />
+
 				<p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-					Tailwind CSS is cool, you know
+					Payment Provider Integration
 				</p>
 				<p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-					Sensible
+					Monetization
 				</p>
 			</motion.div>
 			<motion.div
 				variants={second}
 				className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
 			>
-				<Image
+				{/* <Image
 					src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
 					alt="avatar"
 					height="100"
 					width="100"
 					className="rounded-full h-10 w-10"
-				/>
+				/> */}
+				<IconBrandGithub />
+
 				<p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-					I love angular, RSC, and Redux.
+					Productivity and other tools
 				</p>
 				<p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
-					Helpless
+					Organize
 				</p>
 			</motion.div>
 		</motion.div>
@@ -315,10 +327,11 @@ const items = [
 		icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
 	},
 	{
-		title: "Automated Proofreading",
+		title: "Web Analytics",
 		description: (
 			<span className="text-sm">
-				Let AI handle the proofreading of your documents.
+				Get insights into your website&apos;s performance with our
+				analytics
 			</span>
 		),
 		header: <SkeletonTwo />,
@@ -326,10 +339,10 @@ const items = [
 		icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
 	},
 	{
-		title: "Contextual Suggestions",
+		title: "Custom Domain",
 		description: (
 			<span className="text-sm">
-				Get AI-powered suggestions based on your writing context.
+				Add custom domain to your website and make it your own.
 			</span>
 		),
 		header: <SkeletonThree />,
@@ -337,10 +350,10 @@ const items = [
 		icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
 	},
 	{
-		title: "Sentiment Analysis",
+		title: "Third-party integrations",
 		description: (
 			<span className="text-sm">
-				Understand the sentiment of your text with AI analysis.
+				Integrate your favorite tools and services with Saroh.
 			</span>
 		),
 		header: <SkeletonFour />,
@@ -349,10 +362,10 @@ const items = [
 	},
 
 	{
-		title: "Text Summarization",
+		title: "Drag and Drop Builder",
 		description: (
 			<span className="text-sm">
-				Summarize your lengthy documents with AI technology.
+				Build your website with our intuitive drag and drop builder.
 			</span>
 		),
 		header: <SkeletonFive />,
