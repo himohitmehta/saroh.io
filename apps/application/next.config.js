@@ -9,9 +9,6 @@ const nextConfig = {
 
 		return config;
 	},
-	experimental: {
-		serverActions: true,
-	},
 	reactStrictMode: false,
 	images: {
 		domains: [
