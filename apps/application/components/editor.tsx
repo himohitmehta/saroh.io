@@ -1,17 +1,27 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
-import { Post } from "@prisma/client";
 import { updatePost, updatePostMetadata } from "@/lib/actions";
-import { Editor as NovelEditor } from "novel";
-import TextareaAutosize from "react-textarea-autosize";
 import { cn } from "@/lib/utils";
-import LoadingDots from "./icons/loading-dots";
+import { Post } from "@prisma/client";
 import { ExternalLink } from "lucide-react";
+import {
+	EditorCommand,
+	EditorCommandEmpty,
+	EditorCommandItem,
+	EditorContent,
+	EditorRoot,
+	defaultEditorProps
+} from "novel";
+import { useEffect, useState, useTransition } from "react";
+import TextareaAutosize from "react-textarea-autosize";
 import { toast } from "sonner";
+import { defaultExtensions } from "./editor/extensions";
+import { slashCommand, suggestionItems } from "./editor/slashCommand";
+import LoadingDots from "./icons/loading-dots";
 
 type PostWithSite = Post & { site: { subdomain: string | null } | null };
 
+const extensions = [...defaultExtensions, slashCommand];
 export default function Editor({ post }: { post: PostWithSite }) {
 	let [isPendingSaving, startTransitionSaving] = useTransition();
 	let [isPendingPublishing, startTransitionPublishing] = useTransition();
@@ -114,29 +124,101 @@ export default function Editor({ post }: { post: PostWithSite }) {
 					className="dark:placeholder-text-600 w-full resize-none border-none px-0 placeholder:text-stone-400 focus:outline-none focus:ring-0 dark:bg-black dark:text-white"
 				/>
 			</div>
-			<NovelEditor
-				className="relative block"
-				disableLocalStorage
-				defaultValue={post?.content || ""}
-				onUpdate={(editor) => {
-					setData((prev) => ({
-						...prev,
-						content: editor?.storage.markdown.getMarkdown(),
-					}));
-				}}
-				onDebouncedUpdate={() => {
-					if (
-						data.title === post.title &&
-						data.description === post.description &&
-						data.content === post.content
-					) {
-						return;
-					}
-					startTransitionSaving(async () => {
-						await updatePost(data);
-					});
-				}}
-			/>
+			<EditorRoot>
+				<EditorContent
+					extensions={extensions}
+					// enableCoreExtensions
+					initialContent={(post?.content as unknown) || ""}
+					onUpdate={(editor) => {
+						setData((prev) => ({
+							...prev,
+							content:
+								editor.editor.storage.markdown.getMarkdown(),
+						}));
+					}}
+					editorProps={{
+						...defaultEditorProps,
+						attributes: {
+							class: `prose prose-stone m-auto w-11/12 dark:prose-invert sm:prose-lg sm:w-3/4 focus-visible:outline-none focus-visible:border-none focus-visible:ring-0`,
+						},
+					}}
+					className="border-none focus:outline-none focus:ring-0 dark:bg-black dark:text-white"
+				>
+					<EditorCommand className="z-50 h-auto max-h-[330px]  w-72 overflow-y-auto rounded-md border border-muted bg-background px-1 py-2 shadow-md transition-all">
+						<EditorCommandEmpty className="px-2 text-muted-foreground">
+							No results
+						</EditorCommandEmpty>
+						{suggestionItems.map((item) => (
+							<EditorCommandItem
+								value={item.title}
+								// onCommand={(val) => item?.command(val)}
+								onCommand={(val) =>
+									typeof item?.command === "function" &&
+									item.command(val)
+								}
+								className={`flex w-full items-center space-x-2 rounded-md px-2 py-1 text-left text-sm hover:bg-accent aria-selected:bg-accent `}
+								key={item.title}
+							>
+								<div className="flex h-10 w-10 items-center justify-center rounded-md border border-muted bg-background">
+									{item.icon}
+								</div>
+								<div>
+									<p className="font-medium">{item.title}</p>
+									<p className="text-xs text-muted-foreground">
+										{item.description}
+									</p>
+								</div>
+							</EditorCommandItem>
+						))}
+					</EditorCommand>
+				</EditorContent>
+				{/* <EditorCommand className="z-50 h-auto max-h-[330px]  w-72 overflow-y-auto rounded-md border border-muted bg-background px-1 py-2 shadow-md transition-all">
+						<EditorCommandEmpty className="px-2 text-muted-foreground">
+							No results
+						</EditorCommandEmpty>
+						{suggestionItems.map((item) => (
+							<EditorCommandItem
+								value={item.title}
+								onCommand={(val) => item?.command(val)}
+								className={`flex w-full items-center space-x-2 rounded-md px-2 py-1 text-left text-sm hover:bg-accent aria-selected:bg-accent `}
+								key={item.title}
+							>
+								<div className="flex h-10 w-10 items-center justify-center rounded-md border border-muted bg-background">
+									{item.icon}
+								</div>
+								<div>
+									<p className="font-medium">{item.title}</p>
+									<p className="text-xs text-muted-foreground">
+										{item.description}
+									</p>
+								</div>
+							</EditorCommandItem>
+						))}
+					</EditorCommand>
+				</EditorContent> */}
+				{/* <EditorContent
+					className="relative block"
+					defaultValue={post?.content || ""}
+					onUpdate={(editor) => {
+						setData((prev) => ({
+							...prev,
+							content: editor?.storage.markdown.getMarkdown(),
+						}));
+					}}
+					onDebouncedUpdate={() => {
+						if (
+							data.title === post.title &&
+							data.description === post.description &&
+							data.content === post.content
+						) {
+							return;
+						}
+						startTransitionSaving(async () => {
+							await updatePost(data);
+						});
+					}}
+				/> */}
+			</EditorRoot>
 		</div>
 	);
 }
