@@ -31,19 +31,37 @@ export default function JoinWaitlist() {
 	});
 	function onSubmit(data: z.infer<typeof FormSchema>) {
 		console.log({ data });
+		fetch("/api/waitlist", {
+			method: "POST",
+			body: JSON.stringify(data),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((res) => res.json())
+			.then((json) => {
+				if (json.status === "success") {
+					toast({
+						description:
+							"Thanks for joining the waitlist! We'll be in touch soon.",
+					});
 
-		prisma.waitlist
-			.create({
-				data: {
-					email: data.email,
-				},
-			})
-			.then(() => {
-				toast({
-					description:
-						"Thanks for joining the waitlist! We'll be in touch soon.",
-				});
-				form.reset();
+					form.reset();
+				}
+				if (json.status === "failure") {
+					if (json.reason.code === "P2002") {
+						return toast({
+							title: "Email already exists in the waitlist.",
+							variant: "destructive",
+						});
+					}
+					toast({
+						title: "An error occurred. Please try again later.",
+						variant: "destructive",
+						// description: json.reason.,
+					});
+					console.error(json.reason);
+				}
 			})
 			.catch((error) => {
 				toast({
