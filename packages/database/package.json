@@ -9,7 +9,7 @@
 		"dist/**"
 	],
 	"scripts": {
-		"build": "npm run generate&& tsup",
+		"build": "npm run generate && tsup",
 		"clean": "rimraf .turbo node_modules dist",
 		"db:migrate:deploy": "prisma migrate deploy",
 		"db:migrate:dev": "prisma migrate dev",
@@ -21,16 +21,17 @@
 		"lint": "eslint \"src/**/*.ts\"",
 		"prebuild": "npm run generate",
 		"predev": "npm run generate",
-		"studio": "prisma studio"
+		"studio": "prisma studio",
+		"postinstall": "prisma generate"
 	},
 	"dependencies": {
-		"@prisma/client": "^5.4.2",
+		"@prisma/client": "^5.10.2",
 		"@types/node": "^20.8.9"
 	},
 	"devDependencies": {
 		"config": "*",
 		"eslint": "^8.52.0",
-		"prisma": "^5.5.2",
+		"prisma": "^5.10.2",
 		"rimraf": "^5.0.5",
 		"tsconfig": "*",
 		"tsup": "^7.2.0",

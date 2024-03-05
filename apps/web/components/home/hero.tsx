@@ -1,4 +1,5 @@
 import React from "react";
+import { MovingBorderButton } from "../ui/moving-borders";
 
 function Hero(): JSX.Element {
 	return (
@@ -37,6 +38,8 @@ function Hero(): JSX.Element {
 				>
 					Coming Soon
 				</span>
+				{/* <MovingBorderButton>Coming Soon</MovingBorderButton> */}
+
 				{/* <a
           className="flex items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 shadow-lg transition-all hover:border-gray-800"
           href="https://dub.sh/github"
