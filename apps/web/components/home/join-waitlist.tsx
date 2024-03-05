@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { FC } from "react";
 import { Input } from "../ui/input";
 import {
 	Form,
