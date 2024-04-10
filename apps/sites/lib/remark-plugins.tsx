@@ -7,7 +7,7 @@ export function replaceLinks({
 	children,
 }: {
 	href?: string;
-	children: ReactNode;
+	children: React.ReactNode;
 }) {
 	// this is technically not a remark plugin but it
 	// replaces internal links with <Link /> component
