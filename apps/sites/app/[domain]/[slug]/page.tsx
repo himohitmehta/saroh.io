@@ -3,7 +3,7 @@ import { getPostData } from "@/lib/fetchers";
 import BlogCard from "@/components/blog-card";
 import MDX from "@/components/mdx";
 import { toDateString } from "@/lib/utils";
-import BlurImage from "@/components/blur-image";
+import Image from "next/image";
 
 export async function generateMetadata({
 	params,
@@ -72,7 +72,7 @@ export default async function SitePostPage({
 					<div className="my-8">
 						<div className="relative inline-block h-8 w-8 overflow-hidden rounded-full align-middle md:h-12 md:w-12">
 							{data.site?.user?.image ? (
-								<BlurImage
+								<Image
 									alt={data.site?.user?.name ?? "User Avatar"}
 									height={80}
 									src={data.site.user.image}
