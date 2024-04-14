@@ -85,7 +85,7 @@ export default async function SiteLayout({
 	children,
 }: {
 	params: { domain: string };
-	children: ReactNode;
+	children: React.ReactNode;
 }) {
 	const { domain } = params;
 	const data = await getSiteData(domain);
