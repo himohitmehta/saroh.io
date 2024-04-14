@@ -25,17 +25,17 @@
 		"postinstall": "prisma generate"
 	},
 	"dependencies": {
-		"@prisma/client": "^5.10.2",
-		"@types/node": "^20.8.9"
+		"@prisma/client": "^5.12.1",
+		"@types/node": "^20.12.7"
 	},
 	"devDependencies": {
-		"config": "*",
-		"eslint": "^8.52.0",
-		"prisma": "^5.10.2",
+		"config": "^3.3.11",
+		"eslint": "^9.0.0",
+		"prisma": "^5.12.1",
 		"rimraf": "^5.0.5",
 		"tsconfig": "*",
-		"tsup": "^7.2.0",
-		"tsx": "^3.7.1",
-		"typescript": "^5.2.2"
+		"tsup": "^8.0.2",
+		"tsx": "^4.7.2",
+		"typescript": "^5.4.5"
 	}
 }
