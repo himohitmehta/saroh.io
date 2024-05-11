@@ -34,6 +34,6 @@
     "dependencies": {
         "lint-staged": "^15.2.2"
     },
-    "packageManager": "pnpm@8.6.10",
+    "packageManager": "pnpm@9.0.4",
     "name": "saroh.io"
 }
