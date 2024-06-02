@@ -1,5 +1,5 @@
 // import { PrismaClient } from "@prisma/client";
-import { prisma } from "database";
+import { prisma } from "@saroh/database";
 // declare global {
 //   var prisma: PrismaClient | undefined;
 // }
