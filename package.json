@@ -8,7 +8,7 @@
         "db:seed": "turbo run db:seed",
         "dev": "turbo run dev --concurrency 100",
         "lint": "turbo run lint",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\""
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\""
     },
     "prisma": {
         "schema": "packages/database/prisma/schema.prisma",

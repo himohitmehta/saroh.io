@@ -1,12 +1,20 @@
 {
     "name": "@saroh/ui",
+    "description": "UI components for Saroh.io",
     "version": "0.0.0",
-    "main": "./index.tsx",
-    "types": "./index.tsx",
+    "sideEffects": false,
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist/**"
+    ],
     "license": "MIT",
     "scripts": {
-        "lint": "eslint .",
-        "generate:component": "turbo gen react-component"
+        "build": "tsup",
+        "lint": "eslint src/",
+        "dev": "tsup --watch",
+        "check-types": "tsc --noEmit"
     },
     "devDependencies": {
         "@saroh/tailwind-config": "workspace:*",
@@ -20,8 +28,37 @@
         "typescript": "^5.4.5"
     },
     "dependencies": {
+        "@radix-ui/react-slot": "^1.0.2",
         "autoprefixer": "^10.4.19",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.1",
         "postcss": "^8.4.38",
-        "tailwindcss": "^3.4.3"
+        "tailwind-merge": "^2.3.0",
+        "tailwindcss": "^3.4.3",
+        "tsup": "^8.0.2"
+    },
+    "author": "Mohit Kumar <himohitmehta>",
+    "homepage": "https://saroh.io",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/himohitmehta/saroh.io.git"
+    },
+    "bugs": {
+        "url": "https://github.com/himohitmehta/saroh.io/issues"
+    },
+    "keywords": [
+        "saroh",
+        "saroh.io",
+        "ui"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "exports": {
+        "./globals.css": "./src/globals.css",
+        "./postcss.config": "./postcss.config.js",
+        "./tailwind.config": "./tailwind.config.ts",
+        "./lib/*": "./src/lib/*.ts",
+        "./components/*": "./src/components/*.tsx"
     }
 }
