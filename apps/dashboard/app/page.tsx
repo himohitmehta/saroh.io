@@ -1,4 +1,4 @@
-import { Button } from "@saroh/ui";
+import { Button } from "@saroh/ui/components/ui/button";
 
 export default function Home() {
     return (
