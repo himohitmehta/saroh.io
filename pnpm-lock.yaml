@@ -790,6 +790,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.0.2
         version: 1.0.2(@types/react@18.3.2)(react@18.3.1)
+      '@saroh/utils':
+        specifier: workspace:*
+        version: link:../utils
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.38)
@@ -842,21 +845,22 @@ importers:
 
   packages/utils:
     dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      tailwind-merge:
+        specifier: ^2.3.0
+        version: 2.3.0
+    devDependencies:
       '@types/node':
         specifier: ^20.13.0
         version: 20.13.0
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
       react:
         specifier: ^18.3.1
         version: 18.3.1
-      tailwind-merge:
-        specifier: ^2.3.0
-        version: 2.3.0
       tsup:
         specifier: ^8.0.2
         version: 8.0.2(postcss@8.4.38)(ts-node@10.9.1(@types/node@20.13.0)(typescript@5.4.5))(typescript@5.4.5)

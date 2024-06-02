@@ -3,6 +3,9 @@
     "include": ["."],
     "exclude": ["dist", "build", "node_modules"],
     "compilerOptions": {
-        "baseUrl": "."
+        "baseUrl": ".",
+        "paths": {
+            "@ui/*": ["./src/*"]
+        }
     }
 }
