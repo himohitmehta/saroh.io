@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function PricingPage() {
-	return <div>PricingPage</div>;
+    return <div>Here we will add the pricing page.</div>;
 }

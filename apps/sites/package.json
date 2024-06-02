@@ -32,7 +32,7 @@
 		"@types/react": "^18.2.78",
 		"@types/react-dom": "^18.2.25",
 		"autoprefixer": "^10.4.19",
-		"database": "workspace:*",
+		"@saroh/database": "workspace:*",
 		"eslint": "^9.0.0",
 		"eslint-config-next": "14.2.1",
 		"postcss": "^8.4.38",
