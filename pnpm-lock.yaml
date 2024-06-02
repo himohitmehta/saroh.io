@@ -16,8 +16,8 @@ importers:
         specifier: ^7.24.5
         version: 7.24.5
       eslint:
-        specifier: ^9.3.0
-        version: 9.3.0
+        specifier: ^8.48.0
+        version: 8.57.0
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -260,6 +260,9 @@ importers:
       '@saroh/database':
         specifier: workspace:*
         version: link:../../packages/database
+      '@saroh/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/tailwind-config
       '@tailwindcss/forms':
         specifier: ^0.5.7
         version: 0.5.7(tailwindcss@3.4.3(ts-node@10.9.1(@types/node@20.12.12)(typescript@5.4.5)))
@@ -299,9 +302,6 @@ importers:
       prisma:
         specifier: ^5.14.0
         version: 5.14.0
-      tailwind-config:
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3(ts-node@10.9.1(@types/node@20.12.12)(typescript@5.4.5))
@@ -398,6 +398,9 @@ importers:
         specifier: ^18
         version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@saroh/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/tailwind-config
       '@types/node':
         specifier: ^20
         version: 20.12.12
@@ -554,6 +557,9 @@ importers:
       '@saroh/database':
         specifier: workspace:*
         version: link:../../packages/database
+      '@saroh/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/tailwind-config
       '@tailwindcss/typography':
         specifier: ^0.5.12
         version: 0.5.12(tailwindcss@3.4.3(ts-node@10.9.1(@types/node@20.12.7)(typescript@5.4.5)))
@@ -578,9 +584,6 @@ importers:
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
-      tailwind-config:
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3(ts-node@10.9.1(@types/node@20.12.7)(typescript@5.4.5))
@@ -678,6 +681,9 @@ importers:
       '@saroh/database':
         specifier: workspace:*
         version: link:../../packages/database
+      '@saroh/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/tailwind-config
       '@types/node':
         specifier: ^20.12.7
         version: 20.12.7
@@ -696,9 +702,6 @@ importers:
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
-      tailwind-config:
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3(ts-node@10.9.1(@types/node@20.12.7)(typescript@5.4.5))
@@ -760,6 +763,16 @@ importers:
         version: 5.4.5
 
   packages/tailwind-config:
+    dependencies:
+      '@tailwindcss/forms':
+        specifier: ^0.5.7
+        version: 0.5.7(tailwindcss@3.4.3(ts-node@10.9.1(@types/node@20.12.12)(typescript@5.4.5)))
+      '@tailwindcss/typography':
+        specifier: ^0.5.13
+        version: 0.5.13(tailwindcss@3.4.3(ts-node@10.9.1(@types/node@20.12.12)(typescript@5.4.5)))
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.3(ts-node@10.9.1(@types/node@20.12.12)(typescript@5.4.5)))
     devDependencies:
       tailwindcss:
         specifier: ^3.4.3
@@ -770,7 +783,20 @@ importers:
   packages/tsconfig: {}
 
   packages/ui:
+    dependencies:
+      autoprefixer:
+        specifier: ^10.4.19
+        version: 10.4.19(postcss@8.4.38)
+      postcss:
+        specifier: ^8.4.38
+        version: 8.4.38
+      tailwindcss:
+        specifier: ^3.4.3
+        version: 3.4.3(ts-node@10.9.1(@types/node@20.12.12)(typescript@5.4.5))
     devDependencies:
+      '@saroh/tailwind-config':
+        specifier: workspace:*
+        version: link:../tailwind-config
       '@turbo/gen':
         specifier: ^1.13.3
         version: 1.13.3(@types/node@20.12.12)(typescript@5.4.5)
@@ -7646,10 +7672,6 @@ packages:
 
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-
-  yaml@2.3.4:
-    resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
-    engines: {node: '>= 14'}
 
   yaml@2.4.2:
     resolution: {integrity: sha512-B3VqDZ+JAg1nZpaEmWtTXUlBneoGx6CPM9b0TENK6aoSu5t73dItudwdgmi6tHlIZZId4dZ9skcAQ2UbcyAeVA==}
@@ -15259,7 +15281,7 @@ snapshots:
   postcss-load-config@4.0.1(postcss@8.4.38)(ts-node@10.9.1(@types/node@20.12.12)(typescript@5.4.5)):
     dependencies:
       lilconfig: 2.1.0
-      yaml: 2.3.4
+      yaml: 2.4.2
     optionalDependencies:
       postcss: 8.4.38
       ts-node: 10.9.1(@types/node@20.12.12)(typescript@5.4.5)
@@ -15267,7 +15289,7 @@ snapshots:
   postcss-load-config@4.0.1(postcss@8.4.38)(ts-node@10.9.1(@types/node@20.12.7)(typescript@5.4.5)):
     dependencies:
       lilconfig: 2.1.0
-      yaml: 2.3.4
+      yaml: 2.4.2
     optionalDependencies:
       postcss: 8.4.38
       ts-node: 10.9.1(@types/node@20.12.7)(typescript@5.4.5)
@@ -16915,8 +16937,6 @@ snapshots:
   yallist@3.1.1: {}
 
   yallist@4.0.0: {}
-
-  yaml@2.3.4: {}
 
   yaml@2.4.2: {}
 

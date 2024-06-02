@@ -16,7 +16,7 @@
     },
     "devDependencies": {
         "@babel/traverse": "^7.24.5",
-        "eslint": "^9.3.0",
+        "eslint": "^8.48.0",
         "husky": "^8.0.3",
         "postcss": "^8.4.38",
         "prettier": "^3.2.5",

@@ -1,21 +1,27 @@
 {
-  "name": "@saroh/ui",
-  "version": "0.0.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
-  "license": "MIT",
-  "scripts": {
-    "lint": "eslint .",
-    "generate:component": "turbo gen react-component"
-  },
-  "devDependencies": {
-    "@turbo/gen": "^1.13.3",
-    "@types/node": "^20.12.12",
-    "@types/react": "^18.3.2",
-    "@types/react-dom": "^18.3.0",
-    "eslint-config-custom": "workspace:*",
-    "react": "^18.3.1",
-    "tsconfig": "workspace:*",
-    "typescript": "^5.4.5"
-  }
+    "name": "@saroh/ui",
+    "version": "0.0.0",
+    "main": "./index.tsx",
+    "types": "./index.tsx",
+    "license": "MIT",
+    "scripts": {
+        "lint": "eslint .",
+        "generate:component": "turbo gen react-component"
+    },
+    "devDependencies": {
+        "@saroh/tailwind-config": "workspace:*",
+        "@turbo/gen": "^1.13.3",
+        "@types/node": "^20.12.12",
+        "@types/react": "^18.3.2",
+        "@types/react-dom": "^18.3.0",
+        "eslint-config-custom": "workspace:*",
+        "react": "^18.3.1",
+        "tsconfig": "workspace:*",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "autoprefixer": "^10.4.19",
+        "postcss": "^8.4.38",
+        "tailwindcss": "^3.4.3"
+    }
 }
