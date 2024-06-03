@@ -1,43 +1,41 @@
-import * as LabelPrimitive from "@radix-ui/react-label";
+/* eslint-disable @typescript-eslint/no-unnecessary-condition -- no*/
+import type * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import * as React from "react";
 import {
     Controller,
-    ControllerProps,
-    FieldPath,
-    FieldValues,
     FormProvider,
     useFormContext,
+    type ControllerProps,
+    type FieldPath,
+    type FieldValues,
 } from "react-hook-form";
-
 import { Label } from "src/components/ui/label";
 import { cn } from "src/lib/utils";
 
 const Form = FormProvider;
 
-type FormFieldContextValue<
+interface FormFieldContextValue<
     TFieldValues extends FieldValues = FieldValues,
     TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-> = {
+> {
     name: TName;
-};
+}
 
 const FormFieldContext = React.createContext<FormFieldContextValue>(
     {} as FormFieldContextValue,
 );
 
-const FormField = <
+function FormField<
     TFieldValues extends FieldValues = FieldValues,
     TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
->({
-    ...props
-}: ControllerProps<TFieldValues, TName>) => {
+>({ ...props }: ControllerProps<TFieldValues, TName>) {
     return (
         <FormFieldContext.Provider value={{ name: props.name }}>
             <Controller {...props} />
         </FormFieldContext.Provider>
     );
-};
+}
 
 const useFormField = () => {
     const fieldContext = React.useContext(FormFieldContext);
@@ -62,9 +60,9 @@ const useFormField = () => {
     };
 };
 
-type FormItemContextValue = {
+interface FormItemContextValue {
     id: string;
-};
+}
 
 const FormItemContext = React.createContext<FormItemContextValue>(
     {} as FormItemContextValue,
@@ -114,10 +112,10 @@ const FormControl = React.forwardRef<
             id={formItemId}
             aria-describedby={
                 !error
-                    ? `${formDescriptionId}`
+                    ? formDescriptionId
                     : `${formDescriptionId} ${formMessageId}`
             }
-            aria-invalid={!!error}
+            aria-invalid={Boolean(error)}
             {...props}
         />
     );

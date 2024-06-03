@@ -3,7 +3,6 @@
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { Check, ChevronRight, Circle } from "lucide-react";
 import * as React from "react";
-
 import { cn } from "src/lib/utils";
 
 const MenubarMenu = MenubarPrimitive.Menu;
@@ -206,10 +205,10 @@ const MenubarSeparator = React.forwardRef<
 ));
 MenubarSeparator.displayName = MenubarPrimitive.Separator.displayName;
 
-const MenubarShortcut = ({
+function MenubarShortcut({
     className,
     ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
+}: React.HTMLAttributes<HTMLSpanElement>) {
     return (
         <span
             className={cn(
@@ -219,7 +218,7 @@ const MenubarShortcut = ({
             {...props}
         />
     );
-};
+}
 MenubarShortcut.displayname = "MenubarShortcut";
 
 export {

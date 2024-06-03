@@ -3,7 +3,6 @@
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 import { Check, ChevronRight, Circle } from "lucide-react";
 import * as React from "react";
-
 import { cn } from "src/lib/utils";
 
 const ContextMenu = ContextMenuPrimitive.Root;
@@ -165,10 +164,10 @@ const ContextMenuSeparator = React.forwardRef<
 ));
 ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName;
 
-const ContextMenuShortcut = ({
+function ContextMenuShortcut({
     className,
     ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
+}: React.HTMLAttributes<HTMLSpanElement>) {
     return (
         <span
             className={cn(
@@ -178,7 +177,7 @@ const ContextMenuShortcut = ({
             {...props}
         />
     );
-};
+}
 ContextMenuShortcut.displayName = "ContextMenuShortcut";
 
 export {

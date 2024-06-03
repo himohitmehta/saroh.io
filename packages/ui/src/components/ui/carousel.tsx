@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition -- not required */
+/* eslint-disable @typescript-eslint/no-shadow -- not required*/
 "use client";
 
 import useEmblaCarousel, {
@@ -5,7 +7,6 @@ import useEmblaCarousel, {
 } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import * as React from "react";
-
 import { Button } from "src/components/ui/button";
 import { cn } from "src/lib/utils";
 
@@ -14,12 +15,12 @@ type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
 type CarouselOptions = UseCarouselParameters[0];
 type CarouselPlugin = UseCarouselParameters[1];
 
-type CarouselProps = {
+interface CarouselProps {
     opts?: CarouselOptions;
     plugins?: CarouselPlugin;
     orientation?: "horizontal" | "vertical";
     setApi?: (api: CarouselApi) => void;
-};
+}
 
 type CarouselContextProps = {
     carouselRef: ReturnType<typeof useEmblaCarousel>[0];
@@ -124,7 +125,7 @@ const Carousel = React.forwardRef<
             <CarouselContext.Provider
                 value={{
                     carouselRef,
-                    api: api,
+                    api,
                     opts,
                     orientation:
                         orientation ||

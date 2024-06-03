@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import { cn } from "src/lib/utils";
 
 const Card = React.forwardRef<
@@ -40,7 +39,9 @@ const CardTitle = React.forwardRef<
             className,
         )}
         {...props}
-    />
+    >
+        {props.children}
+    </h3>
 ));
 CardTitle.displayName = "CardTitle";
 
