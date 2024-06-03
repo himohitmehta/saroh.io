@@ -38,3 +38,7 @@ yarn-error.log*
 
 
 packages/database/dist
+
+dist
+
+.eslintcache

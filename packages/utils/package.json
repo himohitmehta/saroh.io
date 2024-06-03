@@ -1,12 +1,50 @@
 {
-  "name": "@saroh/utils",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "@saroh/utils",
+    "version": "1.0.0",
+    "description": "Utility functions and constants for Saroh.io",
+    "scripts": {
+        "build": "tsup",
+        "lint": "eslint src/",
+        "dev": "tsup --watch",
+        "check-types": "tsc --noEmit"
+    },
+    "sideEffects": false,
+    "main": "./dist/index.mjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist/**"
+    ],
+    "dependencies": {
+        "clsx": "^2.1.1",
+        "tailwind-merge": "^2.3.0"
+    },
+    "peerDependencies": {
+        "react": "^18.3.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.13.0",
+        "@types/react": "^18.3.3",
+        "react": "^18.3.1",
+        "tsup": "^8.0.2",
+        "typescript": "^5.4.5"
+    },
+    "author": "Mohit Kumar <himohitmehta>",
+    "homepage": "https://saroh.io",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/himohitmehta/saroh.io.git"
+    },
+    "bugs": {
+        "url": "https://github.com/himohitmehta/saroh.io/issues"
+    },
+    "keywords": [
+        "saroh",
+        "saroh.io",
+        "utils",
+        "utility"
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
 }

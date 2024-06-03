@@ -8,7 +8,7 @@
         "db:seed": "turbo run db:seed",
         "dev": "turbo run dev --concurrency 100",
         "lint": "turbo run lint",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\""
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\""
     },
     "prisma": {
         "schema": "packages/database/prisma/schema.prisma",
@@ -16,7 +16,7 @@
     },
     "devDependencies": {
         "@babel/traverse": "^7.24.5",
-        "eslint": "^9.3.0",
+        "eslint": "^8.48.0",
         "husky": "^8.0.3",
         "postcss": "^8.4.38",
         "prettier": "^3.2.5",
