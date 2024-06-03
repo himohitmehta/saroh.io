@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unstable-nested-components -- not required */
-/* eslint-disable @typescript-eslint/no-unused-vars -- not required */
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";

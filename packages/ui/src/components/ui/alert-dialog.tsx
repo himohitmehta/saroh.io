@@ -59,7 +59,7 @@ function AlertDialogHeader({
 }
 AlertDialogHeader.displayName = "AlertDialogHeader";
 
-const AlertDialogFooter = function ({
+function AlertDialogFooter({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
@@ -72,7 +72,7 @@ const AlertDialogFooter = function ({
             {...props}
         />
     );
-};
+}
 AlertDialogFooter.displayName = "AlertDialogFooter";
 
 const AlertDialogTitle = React.forwardRef<
