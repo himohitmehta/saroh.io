@@ -1,7 +1,6 @@
-/* eslint-disable import/no-named-as-default-member -- showing unnecessary errors*/
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import React from "react";
+import * as React from "react";
 import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
