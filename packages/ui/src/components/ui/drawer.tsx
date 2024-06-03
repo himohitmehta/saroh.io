@@ -1,9 +1,8 @@
-/* eslint-disable import/order -- not required import order */
 "use client";
 
 import * as React from "react";
-import { cn } from "src/lib/utils";
 import { Drawer as DrawerPrimitive } from "vaul";
+import { cn } from "../../lib/utils";
 
 function Drawer({
     shouldScaleBackground = true,
