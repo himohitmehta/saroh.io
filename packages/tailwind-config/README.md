@@ -1,0 +1,1 @@
+@saroh/tailwind-config
