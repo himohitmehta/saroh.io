@@ -3,7 +3,7 @@ export default function AppsListPage() {
         <div>
             Select the app to open
             <div>
-                <a href="http://localhost:3005">Dashboard</a>
+                <a href="http://localhost:3004">Dashboard</a>
             </div>
         </div>
     );
