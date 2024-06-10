@@ -16,14 +16,6 @@ export default async function Home() {
             </Avatar>
             <div>{session?.user?.email}</div>
             <LogoutButton />
-            {/* <form
-                action={async () => {
-                    "use server";
-                    await signOut();
-                }}
-            >
-                <Button>Log out</Button>
-            </form> */}
         </main>
     );
 }

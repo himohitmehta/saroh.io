@@ -31,23 +31,23 @@
         "prisma": "5.12.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-hook-form": "^7.51.3",
+        "react-hook-form": "^7.51.5",
         "react-icons": "^5.0.1",
         "simplex-noise": "^4.0.1",
         "tailwind-merge": "^2.2.2",
         "tailwindcss-animate": "^1.0.7",
-        "zod": "^3.22.4"
+        "zod": "^3.23.8"
     },
     "devDependencies": {
         "@next/eslint-plugin-next": "^14.2.1",
+        "@saroh/database": "workspace:*",
+        "@saroh/tailwind-config": "workspace:*",
         "@types/node": "^20.12.7",
         "@types/react": "^18.2.78",
         "@types/react-dom": "^18.2.25",
         "autoprefixer": "^10.4.19",
-        "@saroh/database": "workspace:*",
         "eslint-config-custom": "workspace:*",
         "postcss": "^8.4.38",
-        "@saroh/tailwind-config": "workspace:*",
         "tailwindcss": "^3.4.3",
         "tsconfig": "workspace:*",
         "typescript": "^5.4.5"
