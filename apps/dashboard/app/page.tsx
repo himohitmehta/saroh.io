@@ -1,12 +1,11 @@
+import Dashboard from "@/components/dashboard";
 import { auth } from "@/lib/auth";
-import { Avatar, AvatarFallback, AvatarImage } from "@saroh/ui/avatar";
-import { Button } from "@saroh/ui/button";
-import LogoutButton from "../components/logout-button";
 export default async function Home() {
     const session = await auth();
     return (
         <main>
-            <Button>Login</Button>
+            <Dashboard />
+            {/* <Button>Login</Button>
             <Avatar>
                 <AvatarImage
                     src="https://github.com/shadcn.png"
@@ -15,7 +14,7 @@ export default async function Home() {
                 <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <div>{session?.user?.email}</div>
-            <LogoutButton />
+            <LogoutButton /> */}
         </main>
     );
 }

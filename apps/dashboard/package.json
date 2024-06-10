@@ -11,11 +11,16 @@
     "dependencies": {
         "@auth/prisma-adapter": "^2.2.0",
         "@prisma/nextjs-monorepo-workaround-plugin": "^5.15.0",
+        "@radix-ui/react-icons": "^1.3.0",
         "@saroh/ui": "workspace:*",
+        "date-fns": "^3.6.0",
+        "lucide-react": "^0.394.0",
         "next": "14.2.3",
         "next-auth": "5.0.0-beta.19",
         "react": "^18",
-        "react-dom": "^18"
+        "react-day-picker": "^8.10.1",
+        "react-dom": "^18",
+        "recharts": "^2.12.7"
     },
     "devDependencies": {
         "@saroh/database": "workspace:*",
@@ -25,9 +30,9 @@
         "@types/react-dom": "^18",
         "autoprefixer": "^10.4.19",
         "eslint": "^8",
-        "prisma": "^5.14.0",
         "eslint-config-next": "14.2.3",
         "postcss": "^8",
+        "prisma": "^5.14.0",
         "tailwindcss": "^3.4.1",
         "typescript": "^5"
     }
