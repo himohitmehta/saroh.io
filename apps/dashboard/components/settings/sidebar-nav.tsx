@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 import { buttonVariants } from "@saroh/ui/button";
 import { cn } from "@saroh/ui/lib/utils";
@@ -15,6 +15,7 @@ interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
 
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
     const pathname = usePathname();
+    const params = useParams();
 
     return (
         <nav
@@ -27,7 +28,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
             {items.map((item) => (
                 <Link
                     key={item.href}
-                    href={item.href}
+                    href={`/${params.teamId}${item.href}`}
                     className={cn(
                         buttonVariants({ variant: "ghost" }),
                         pathname === item.href

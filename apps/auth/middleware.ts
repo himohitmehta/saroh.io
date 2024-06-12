@@ -7,10 +7,12 @@ export default auth(async function (req) {
     // Your custom middleware logic goes here
     const { nextUrl } = req;
     const isLoggedIn = !!req.auth;
-    const publicRoutes = ["/auth", "/"];
+    const protectedRoutes = ["/", "/apps"];
+    console.log(nextUrl.pathname);
+    const path = nextUrl.pathname;
 
     const authRoutes = ["/login"];
-    const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+    const isProtectedRoute = protectedRoutes.includes(nextUrl.pathname);
     const isAuthRoute = authRoutes.includes(nextUrl.pathname);
     if (isAuthRoute) {
         if (isLoggedIn) {
@@ -18,8 +20,11 @@ export default auth(async function (req) {
         }
         return;
     }
-    if (isPublicRoute) {
+    if (isProtectedRoute) {
         if (isLoggedIn) {
+            if (path === "/apps") {
+                return;
+            }
             return NextResponse.redirect(new URL("/apps", nextUrl));
         }
         if (!isLoggedIn) {
