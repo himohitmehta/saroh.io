@@ -1,0 +1,62 @@
+{
+    "name": "@saroh/auth",
+    "description": "Authentication module for Saroh, built with Next AUth V5",
+    "version": "1.0.0",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist/**"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "tsup",
+        "lint": "eslint src/",
+        "dev": "tsup --watch",
+        "check-types": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@auth/prisma-adapter": "^2.2.0",
+        "@saroh/database": "workspace:*",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "next": "^14.2.3",
+        "next-auth": "5.0.0-beta.19",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.12.12",
+        "config": "^3.3.11",
+        "eslint": "^9.3.0",
+        "prisma": "^5.14.0",
+        "rimraf": "^5.0.7",
+        "tsconfig": "*",
+        "tsup": "^8.0.2",
+        "tsx": "^4.10.5",
+        "typescript": "^5.4.5"
+    },
+    "author": "Mohit Kumar <himohitmehta>",
+    "homepage": "https://saroh.io",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/himohitmehta/saroh.io.git"
+    },
+    "bugs": {
+        "url": "https://github.com/himohitmehta/saroh.io/issues"
+    },
+    "keywords": [
+        "saroh",
+        "saroh.io",
+        "next-auth",
+        "saroh auth"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "exports": {
+        "./index": "./src/index.ts",
+        "./auth.ts": "./src/auth.ts",
+        "./auth.config": "./src/auth.config.ts"
+    }
+}
