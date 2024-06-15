@@ -3,27 +3,40 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --port 3005",
+        "dev": "next dev --port 3004",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
     },
     "dependencies": {
-        "react": "^18",
-        "react-dom": "^18",
+        "@auth/prisma-adapter": "^2.2.0",
+        "@hookform/resolvers": "^3.6.0",
+        "@prisma/nextjs-monorepo-workaround-plugin": "^5.15.0",
+        "@radix-ui/react-icons": "^1.3.0",
+        "@saroh/ui": "workspace:*",
+        "date-fns": "^3.6.0",
+        "lucide-react": "^0.394.0",
         "next": "14.2.3",
-        "@saroh/ui": "workspace:*"
+        "next-auth": "5.0.0-beta.19",
+        "react": "^18",
+        "react-day-picker": "^8.10.1",
+        "react-dom": "^18",
+        "react-hook-form": "^7.51.5",
+        "recharts": "^2.12.7",
+        "zod": "^3.23.8"
     },
     "devDependencies": {
-        "typescript": "^5",
+        "@saroh/database": "workspace:*",
+        "@saroh/tailwind-config": "workspace:*",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "autoprefixer": "^10.4.19",
-        "postcss": "^8",
-        "tailwindcss": "^3.4.1",
         "eslint": "^8",
         "eslint-config-next": "14.2.3",
-        "@saroh/tailwind-config": "workspace:*"
+        "postcss": "^8",
+        "prisma": "^5.14.0",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5"
     }
 }

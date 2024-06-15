@@ -5,5 +5,6 @@ module.exports = {
     parser: "@typescript-eslint/parser",
     rules: {
         "no-redeclare": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
     },
 };
