@@ -7,6 +7,7 @@
         "db:push": "turbo run db:push",
         "db:seed": "turbo run db:seed",
         "dev": "turbo run dev --concurrency 100",
+        "dev:dashboard":"turbo run dev --filter=sites --filter=dashboard --filter=auth --filter=admin",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\""
     },
