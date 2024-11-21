@@ -1,4 +1,4 @@
-import { nextAuthInstance } from "@saroh/auth/auth.ts";
+import { nextAuthInstance } from "@saroh/auth/auth";
 import { NextResponse } from "next/server";
 const { auth } = nextAuthInstance;
 export default auth(async function (req) {

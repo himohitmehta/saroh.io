@@ -1,10 +1,5 @@
-// export * from './auth'
 import { SessionProvider } from "next-auth/react";
 import React from "react";
-export default function SarohAuthProvider({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+export function AuthProvider({ children }: { children: React.ReactNode }) {
     return <SessionProvider>{children}</SessionProvider>;
 }

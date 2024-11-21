@@ -56,6 +56,6 @@
     },
     "exports": {
         "./index": "./src/index",
-        "./auth.ts": "./src/auth.ts"
+        "./auth": "./src/auth"
     }
 }
