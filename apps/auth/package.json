@@ -3,11 +3,12 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+        "db:gen":"prisma generate --schema=../../packages/database/prisma/schema.prisma",
         "dev": "next dev && prisma generate",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "postinstall": "prisma generate"
+        "postinstall": "prisma generate --schema=../../packages/database/src/prisma/schema.prisma"
     },
     "dependencies": {
         "@prisma/nextjs-monorepo-workaround-plugin": "^5.14.0",

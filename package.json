@@ -12,7 +12,7 @@
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\""
     },
     "prisma": {
-        "schema": "./packages/database/src/prisma/schema.prisma",
+        "schema": "./packages/database/prisma/schema.prisma",
         "seed": "tsx packages/database/src/seed.ts"
     },
     "devDependencies": {
