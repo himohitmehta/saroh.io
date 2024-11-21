@@ -1,8 +1,7 @@
-import NextAuth from "next-auth";
+import { nextAuthInstance } from "@saroh/auth/auth.ts";
 import { NextResponse } from "next/server";
-import authConfig from "./lib/auth.config";
+const { auth } = nextAuthInstance;
 
-const { auth } = NextAuth(authConfig);
 export default auth(async function (req) {
     // Your custom middleware logic goes here
     const isLoggedIn = !!req.auth;

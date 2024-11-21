@@ -10,14 +10,14 @@
         "postinstall": "prisma generate"
     },
     "dependencies": {
-        "@auth/prisma-adapter": "^2.2.0",
         "@prisma/nextjs-monorepo-workaround-plugin": "^5.14.0",
         "next": "14.2.3",
         "next-auth": "5.0.0-beta.19",
         "react": "^18",
         "react-dom": "^18",
         "react-icons": "^5.2.1",
-        "@saroh/ui": "workspace:*"
+        "@saroh/ui": "workspace:*",
+        "@saroh/auth": "workspace:*"
     },
     "devDependencies": {
         "@saroh/database": "workspace:*",
@@ -26,7 +26,6 @@
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "autoprefixer": "^10.4.19",
-        "prisma": "^5.14.0",
         "eslint": "^8",
         "eslint-config-next": "14.2.3",
         "postcss": "^8",
