@@ -55,7 +55,7 @@
         "access": "public"
     },
     "exports": {
-        "./index": "./src/index",
-        "./auth": "./src/auth"
+        "./index": "./src/index.tsx",
+        "./auth": "./src/auth.ts"
     }
 }
