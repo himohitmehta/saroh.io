@@ -7,7 +7,6 @@ export default [
     // Override the recommended config
     {
         rules: {
-            indent: ["error", 2],
             "no-unused-vars": "warn"
         }
         // ...other configuration
