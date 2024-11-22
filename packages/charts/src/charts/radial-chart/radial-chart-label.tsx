@@ -10,13 +10,13 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
+} from "@saroh/ui/card";
 import {
     ChartConfig,
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@saroh/ui/chart";
 
 export const description = "A radial chart with a label";
 
@@ -54,7 +54,7 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
-export function Component() {
+export function RadialChartLabelExample() {
     return (
         <Card className="flex flex-col">
             <CardHeader className="items-center pb-0">

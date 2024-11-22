@@ -10,7 +10,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
+} from "@saroh/ui/card";
 import {
     ChartConfig,
     ChartContainer,
@@ -18,7 +18,7 @@ import {
     ChartLegendContent,
     ChartTooltip,
     ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@saroh/ui/chart";
 
 export const description = "A radar chart with icons";
 
@@ -44,7 +44,7 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
-export function Component() {
+export function RadarChartIconsExample() {
     return (
         <Card>
             <CardHeader className="items-center pb-4">

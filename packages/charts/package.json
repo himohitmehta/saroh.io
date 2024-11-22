@@ -16,12 +16,13 @@
         "check-types": "tsc --noEmit"
     },
     "dependencies": {
-        "recharts": "catalog:",
-        "tsup": "^8.0.2"
+        "tsup": "^8.0.2",
+        "@saroh/ui": "workspace:*",
+        "lucide-react": "catalog:",
+        "recharts": "catalog:"
     },
     "devDependencies": {
         "@saroh/tailwind-config": "workspace:*",
-        "@saroh/ui": "workspace:*",
         "@turbo/gen": "^1.13.3",
         "@types/node": "catalog:",
         "@types/react": "catalog:react18",

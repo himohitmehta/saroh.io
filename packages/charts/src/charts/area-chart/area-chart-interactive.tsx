@@ -9,7 +9,7 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
+} from "@saroh/ui/card";
 import {
     ChartConfig,
     ChartContainer,
@@ -17,14 +17,14 @@ import {
     ChartLegendContent,
     ChartTooltip,
     ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@saroh/ui/chart";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
+} from "@saroh/ui/select";
 
 export const description = "An interactive area chart";
 
@@ -136,7 +136,7 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
-export function Component() {
+export function AreaChartInteractiveExample() {
     const [timeRange, setTimeRange] = React.useState("90d");
 
     const filteredData = chartData.filter((item) => {

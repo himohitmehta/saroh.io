@@ -10,13 +10,13 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
+} from "@saroh/ui/card";
 import {
     ChartConfig,
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@saroh/ui/chart";
 
 export const description = "A mixed bar chart";
 
@@ -54,7 +54,7 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
-export function Component() {
+export function BarChartMixedExample() {
     return (
         <Card>
             <CardHeader>

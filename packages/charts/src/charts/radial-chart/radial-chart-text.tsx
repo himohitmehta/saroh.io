@@ -16,8 +16,8 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
-import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+} from "@saroh/ui/card";
+import { ChartConfig, ChartContainer } from "@saroh/ui/chart";
 
 export const description = "A radial chart with text";
 
@@ -35,7 +35,7 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
-export function Component() {
+export function RadialChartTextExample() {
     return (
         <Card className="flex flex-col">
             <CardHeader className="items-center pb-0">

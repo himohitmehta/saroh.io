@@ -8,13 +8,13 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
+} from "@saroh/ui/card";
 import {
     ChartConfig,
     ChartContainer,
     ChartLegend,
     ChartLegendContent,
-} from "@/components/ui/chart";
+} from "@saroh/ui/chart";
 
 export const description = "A pie chart with a legend";
 
@@ -52,7 +52,7 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
-export function Component() {
+export function PieChartLegendExample() {
     return (
         <Card className="flex flex-col">
             <CardHeader className="items-center pb-0">
