@@ -5,6 +5,7 @@ export default async function Home() {
     if (session) {
         redirect("/products");
     }
+    redirect(`/login`);
     return (
         <main>
             hi

@@ -1,1 +1,1 @@
-export * from "@saroh/tailwind-config/tailwind.config";
+export * from "../../tooling/tailwind-config/tailwind.config";

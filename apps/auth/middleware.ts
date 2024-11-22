@@ -1,8 +1,6 @@
-import NextAuth from "next-auth";
+import { nextAuthInstance } from "@saroh/auth/auth";
 import { NextResponse } from "next/server";
-import authConfig from "./lib/auth.config";
-
-const { auth } = NextAuth(authConfig);
+const { auth } = nextAuthInstance;
 export default auth(async function (req) {
     // Your custom middleware logic goes here
     const { nextUrl } = req;
