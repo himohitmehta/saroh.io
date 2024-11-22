@@ -10,6 +10,7 @@ const project = resolve(process.cwd(), "tsconfig.json");
  * This config extends the Vercel Engineering Style Guide.
  * For more information, see https://github.com/vercel/style-guide
  *
+ * nothing done here, only change of indentation
  */
 
 module.exports = {
