@@ -1,41 +1,41 @@
 {
-	"name": "@saroh/database",
-	"version": "1.0.0",
-	"license": "MIT",
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
-	"files": [
-		"dist/**"
-	],
-	"scripts": {
-		"build": "npm run generate && tsup",
-		"clean": "rimraf .turbo node_modules dist",
-		"db:migrate:deploy": "prisma migrate deploy",
-		"db:migrate:dev": "prisma migrate dev",
-		"db:push": "prisma db push",
-		"db:seed": "tsx src/seed.ts",
-		"dev": "tsup --watch",
-		"format": "prisma format",
-		"generate": "prisma generate",
-		"lint": "eslint \"src/**/*.ts\"",
-		"prebuild": "npm run generate",
-		"predev": "npm run generate",
-		"studio": "prisma studio",
-		"postinstall": "prisma generate"
-	},
-	"dependencies": {
-		"@prisma/client": "^5.14.0",
-		"@types/node": "^20.12.12"
-	},
-	"devDependencies": {
-		"config": "^3.3.11",
-		"eslint": "^9.3.0",
-		"prisma": "^5.14.0",
-		"rimraf": "^5.0.7",
-		"tsconfig": "*",
-		"tsup": "^8.0.2",
-		"tsx": "^4.10.5",
-		"typescript": "^5.4.5"
-	}
+    "name": "@saroh/database",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist/**"
+    ],
+    "scripts": {
+        "build": "npm run generate && tsup",
+        "clean": "rimraf .turbo node_modules dist",
+        "db:migrate:deploy": "prisma migrate deploy",
+        "db:migrate:dev": "prisma migrate dev",
+        "db:push": "prisma db push",
+        "db:seed": "tsx src/seed.ts",
+        "dev": "tsup --watch",
+        "format": "prisma format",
+        "generate": "prisma generate",
+        "lint": "eslint \"src/**/*.ts\"",
+        "prebuild": "npm run generate",
+        "predev": "npm run generate",
+        "studio": "prisma studio",
+        "postinstall": "prisma generate"
+    },
+    "dependencies": {
+        "@prisma/client": "catalog:prisma",
+        "@types/node": "catalog:"
+    },
+    "devDependencies": {
+        "config": "^3.3.11",
+        "eslint": "catalog:",
+        "prisma": "catalog:prisma",
+        "rimraf": "^5.0.7",
+        "tsconfig": "*",
+        "tsup": "^8.0.2",
+        "tsx": "^4.10.5",
+        "typescript": "catalog:"
+    }
 }

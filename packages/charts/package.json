@@ -16,19 +16,19 @@
         "check-types": "tsc --noEmit"
     },
     "dependencies": {
-        "recharts": "^2.12.7",
+        "recharts": "catalog:",
         "tsup": "^8.0.2"
     },
     "devDependencies": {
         "@saroh/tailwind-config": "workspace:*",
         "@saroh/ui": "workspace:*",
         "@turbo/gen": "^1.13.3",
-        "@types/node": "^20.12.12",
-        "@types/react": "^18.3.2",
-        "@types/react-dom": "^18.3.0",
-        "eslint-config-custom": "workspace:*",
-        "react": "^18.3.1",
-        "tsconfig": "workspace:*",
-        "typescript": "^5.4.5"
+        "@types/node": "catalog:",
+        "@types/react": "catalog:react18",
+        "@types/react-dom": "catalog:react18",
+        "@saroh/eslint-config": "workspace:*",
+        "react": "catalog:react18",
+        "@saroh/tsconfig": "workspace:*",
+        "typescript": "catalog:"
     }
 }

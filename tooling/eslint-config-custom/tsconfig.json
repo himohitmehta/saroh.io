@@ -1,5 +1,5 @@
 {
     "extends": "@saroh/tsconfig/base.json",
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tsup.config.ts"],
+    "include": ["."],
     "exclude": ["node_modules"]
 }
