@@ -1,0 +1,27 @@
+{
+    "name": "ai",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "react": "19.0.0-rc-66855b96-20241106",
+        "react-dom": "19.0.0-rc-66855b96-20241106",
+        "next": "catalog:next15"
+    },
+    "devDependencies": {
+        "typescript": "catalog:",
+        "@types/node": "catalog:",
+        "@types/react": "catalog:react18",
+        "@types/react-dom": "catalog:react18",
+        "postcss": "catalog:",
+        "@saroh/eslint-config": "workspace:*",
+        "tailwindcss": "catalog:",
+        "eslint": "catalog:",
+        "eslint-config-next": "catalog:"
+    }
+}

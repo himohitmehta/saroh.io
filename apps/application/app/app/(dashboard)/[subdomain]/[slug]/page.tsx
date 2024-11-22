@@ -4,34 +4,35 @@ import prisma from "@/lib/prisma";
 import { notFound, redirect } from "next/navigation";
 
 export default async function PostPage({
-	params,
+    params,
 }: {
-	params: { slug: string };
+    params: Promise<{ slug: string }>;
 }) {
-	const session = await getSession();
-	if (!session) {
-		redirect("/login");
-	}
-	const data = await prisma.post.findUnique({
-		where: {
-			id: params.slug,
-		},
-		include: {
-			site: {
-				select: {
-					subdomain: true,
-				},
-			},
-		},
-	});
-	if (!data || data.userId !== session.user.id) {
-		notFound();
-	}
+    const { slug } = await params;
+    const session = await getSession();
+    if (!session) {
+        redirect("/login");
+    }
+    const data = await prisma.post.findUnique({
+        where: {
+            id: slug,
+        },
+        include: {
+            site: {
+                select: {
+                    subdomain: true,
+                },
+            },
+        },
+    });
+    if (!data || data.userId !== session.user.id) {
+        notFound();
+    }
 
-	return (
-		<>
-			<Editor post={data} />
-			{/* <BlockNoteEditor /> */}
-		</>
-	);
+    return (
+        <>
+            <Editor post={data} />
+            {/* <BlockNoteEditor /> */}
+        </>
+    );
 }

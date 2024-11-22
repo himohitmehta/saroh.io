@@ -3,34 +3,36 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+        "db:gen": "prisma generate --schema=../../packages/database/prisma/schema.prisma",
         "dev": "next dev && prisma generate",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "postinstall": "prisma generate"
+        "postinstall": "prisma generate --schema=../../packages/database/prisma/schema.prisma"
     },
     "dependencies": {
-        "@auth/prisma-adapter": "^2.2.0",
-        "@prisma/nextjs-monorepo-workaround-plugin": "^5.14.0",
-        "next": "14.2.3",
-        "next-auth": "5.0.0-beta.19",
-        "react": "^18",
-        "react-dom": "^18",
-        "react-icons": "^5.2.1",
-        "@saroh/ui": "workspace:*"
+        "@prisma/nextjs-monorepo-workaround-plugin": "catalog:prisma",
+        "next": "catalog:next15",
+        "next-auth": "catalog:",
+        "react": "catalog:react18",
+        "react-dom": "catalog:react18",
+        "react-icons": "catalog:",
+        "@saroh/ui": "workspace:*",
+        "@saroh/auth": "workspace:*"
     },
     "devDependencies": {
         "@saroh/database": "workspace:*",
         "@saroh/tailwind-config": "workspace:*",
-        "@types/node": "^20",
-        "@types/react": "^18",
-        "@types/react-dom": "^18",
-        "autoprefixer": "^10.4.19",
-        "prisma": "^5.14.0",
-        "eslint": "^8",
-        "eslint-config-next": "14.2.3",
-        "postcss": "^8",
-        "tailwindcss": "^3.4.1",
-        "typescript": "^5"
+        "@types/node": "catalog:",
+        "@types/react": "catalog:react18",
+        "@types/react-dom": "catalog:react18",
+        "autoprefixer": "catalog:",
+        "eslint": "catalog:",
+        "eslint-config-next": "catalog:",
+        "postcss": "catalog:",
+        "tailwindcss": "catalog:",
+        "typescript": "catalog:",
+        "@saroh/eslint-config": "workspace:*",
+        "prisma": "catalog:prisma"
     }
 }

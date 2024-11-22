@@ -7,9 +7,9 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({
     params,
 }: {
-    params: { domain: string; slug: string };
+    params: Promise<{ domain: string; slug: string }>;
 }) {
-    const { domain, slug } = params;
+    const { domain, slug } = await params;
     const data = await getPostData(domain, slug);
     if (!data) {
         return null;
@@ -35,9 +35,9 @@ export async function generateMetadata({
 export default async function SitePostPage({
     params,
 }: {
-    params: { domain: string; slug: string };
+    params: Promise<{ domain: string; slug: string }>;
 }) {
-    const { domain, slug } = params;
+    const { domain, slug } = await params;
     const data = await getPostData(domain, slug);
 
     if (!data) {

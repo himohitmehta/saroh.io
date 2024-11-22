@@ -7,12 +7,12 @@
         "build": " next build",
         "start": "next start",
         "lint": "next lint",
-        "postinstall": "prisma generate"
+        "postinstall": "prisma generate --schema=../../packages/database/prisma/schema.prisma"
     },
     "dependencies": {
-        "@hookform/resolvers": "^3.3.4",
-        "@prisma/client": "^5.12.1",
-        "@prisma/nextjs-monorepo-workaround-plugin": "^5.12.1",
+        "@hookform/resolvers": "catalog:",
+        "@prisma/client": "catalog:prisma",
+        "@prisma/nextjs-monorepo-workaround-plugin": "catalog:prisma",
         "@radix-ui/react-avatar": "^1.0.3",
         "@radix-ui/react-label": "^2.0.2",
         "@radix-ui/react-slot": "^1.0.2",
@@ -24,32 +24,32 @@
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.0",
         "framer-motion": "^11.0.28",
-        "lucide-react": "^0.368.0",
+        "lucide-react": "catalog:",
         "mini-svg-data-uri": "^1.4.4",
         "next": "^14.2.1",
         "next-themes": "^0.3.0",
-        "prisma": "5.12.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-hook-form": "^7.51.5",
+        "react-hook-form": "catalog:",
         "react-icons": "^5.0.1",
         "simplex-noise": "^4.0.1",
         "tailwind-merge": "^2.2.2",
         "tailwindcss-animate": "^1.0.7",
-        "zod": "^3.23.8"
+        "zod": "catalog:"
     },
     "devDependencies": {
         "@next/eslint-plugin-next": "^14.2.1",
         "@saroh/database": "workspace:*",
         "@saroh/tailwind-config": "workspace:*",
-        "@types/node": "^20.12.7",
-        "@types/react": "^18.2.78",
-        "@types/react-dom": "^18.2.25",
-        "autoprefixer": "^10.4.19",
-        "eslint-config-custom": "workspace:*",
-        "postcss": "^8.4.38",
-        "tailwindcss": "^3.4.3",
-        "tsconfig": "workspace:*",
-        "typescript": "^5.4.5"
+        "prisma": "catalog:prisma",
+        "@types/node": "catalog:",
+        "@types/react": "catalog:react18",
+        "@types/react-dom": "catalog:react18",
+        "autoprefixer": "catalog:",
+        "@saroh/eslint-config": "workspace:*",
+        "postcss": "catalog:",
+        "tailwindcss": "catalog:",
+        "@saroh/tsconfig": "workspace:*",
+        "typescript": "catalog:"
     }
 }
