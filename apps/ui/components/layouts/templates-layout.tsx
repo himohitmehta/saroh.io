@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ComponentsLayout({
+export default function TemplatesLayout({
     children,
 }: {
     children: React.ReactNode;

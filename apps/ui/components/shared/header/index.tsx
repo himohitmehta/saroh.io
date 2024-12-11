@@ -3,7 +3,7 @@ import { SiGithub } from "react-icons/si";
 export default function Header() {
     return (
         <header className=" border-b py-4 ">
-            <div className="mx-auto flex max-w-7xl items-center justify-between">
+            <div className="mx-auto flex max-w-screen-2xl items-center justify-between">
                 <div className="flex items-center gap-4">
                     <Link
                         href={"/"}

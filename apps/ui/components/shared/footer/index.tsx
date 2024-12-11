@@ -1,3 +1,3 @@
 export default function Footer() {
-    return <div>Footer</div>;
+    return <div className="mx-auto max-w-screen-2xl">Footer</div>;
 }
