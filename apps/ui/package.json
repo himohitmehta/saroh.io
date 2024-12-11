@@ -9,6 +9,9 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@saroh/ui": "workspace:*",
+        "@saroh/charts": "workspace:*",
+        "react-icons":"catalog:",
         "react": "catalog:react18",
         "react-dom": "catalog:react18",
         "next": "catalog:next15"

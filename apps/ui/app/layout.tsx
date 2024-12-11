@@ -1,6 +1,7 @@
+import BaseLayout from "@/components/layouts/base-layout";
+import "@saroh/ui/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,12 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    // if (typeof window === "undefined")
     return (
-        <html lang="en">
-            <body className={inter.className}>{children}</body>
+        <html lang="en" suppressHydrationWarning>
+            <body className={inter.className}>
+                <BaseLayout>{children}</BaseLayout>
+            </body>
         </html>
     );
 }
