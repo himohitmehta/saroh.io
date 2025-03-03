@@ -26,6 +26,7 @@ catalog:
     "react-hook-form": ^7.51.5
     "recharts": ^2.12.7
     "react-day-picker": ^8.10.1
+    "@eslint/eslintrc": ^3.0.0
 
 catalogs:
     react18:
