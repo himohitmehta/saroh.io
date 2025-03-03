@@ -89,3 +89,4 @@ We are just getting started and these are just a few things we have covered. Thi
 ### Support the development
 
 Feel free to contact me on: <mohit@himohit.me> or <mohit@saroh.io>.
+.
