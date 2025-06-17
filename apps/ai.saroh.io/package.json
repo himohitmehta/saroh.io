@@ -3,14 +3,14 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --turbopack",
+        "dev": "next dev --turbopack --port=3002",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
     },
     "dependencies": {
-        "react": "19.0.0-rc-66855b96-20241106",
-        "react-dom": "19.0.0-rc-66855b96-20241106",
+        "react": "catalog:react18",
+        "react-dom": "catalog:react18",
         "next": "catalog:next15"
     },
     "devDependencies": {
