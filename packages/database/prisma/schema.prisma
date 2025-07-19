@@ -2,16 +2,15 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider     = "mysql"
+  provider     = "postgresql"
   url          = env("DATABASE_URL") // uses connection pooling
   relationMode = "prisma"
-
 }
 
 generator client {
-  provider        = "prisma-client-js"
+  provider = "prisma-client-js"
   // previewFeatures = ["jsonProtocol"]
-  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+  // previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 model User {
@@ -37,13 +36,13 @@ model Account {
   type                     String
   provider                 String
   providerAccountId        String
-  refresh_token            String? @db.LongText
+  refresh_token            String?
   refresh_token_expires_in Int?
-  access_token             String? @db.LongText
+  access_token             String?
   expires_at               Int?
   token_type               String?
   scope                    String?
-  id_token                 String? @db.LongText
+  id_token                 String?
   session_state            String?
   oauth_token_secret       String?
   oauth_token              String?
@@ -76,10 +75,10 @@ model Post {
   id            String   @id @default(cuid())
   title         String?  @db.Text
   description   String?  @db.Text
-  content       String?  @db.LongText
+  content       String?
   slug          String   @default(cuid())
-  image         String?  @db.LongText
-  imageBlurhash String?  @db.LongText
+  image         String?
+  imageBlurhash String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   published     Boolean  @default(false)
@@ -99,8 +98,8 @@ model Site {
   description   String?  @db.Text
   logo          String?  @db.Text
   font          String   @default("font-cal")
-  image         String?  @db.LongText
-  imageBlurhash String?  @db.LongText
+  image         String?
+  imageBlurhash String?
   subdomain     String?  @unique
   customDomain  String?  @unique
   message404    String?  @db.Text
@@ -112,7 +111,6 @@ model Site {
 
   @@index([userId])
 }
-
 
 model Waitlist {
   id        String   @id @default(cuid())
