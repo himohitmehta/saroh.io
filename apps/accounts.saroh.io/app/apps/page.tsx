@@ -57,7 +57,7 @@ const apps = [
     {
         name: "Website",
         devUrl: "http://localhost:3012",
-        prodUrl: "https://website.saroh.io",
+        prodUrl: "https://saroh.io",
     },
 ];
 
